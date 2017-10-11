@@ -8,15 +8,12 @@ date:   2014-12-13
 
 Jekyll also offers powerful support for code snippets:
 
-{% highlight php %}
-<?php
-phpinfo();
-?>
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight java %}
+import zadnrms.defy;
+
+class defy extends defyMachine {
+
+}
 {% endhighlight %}
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
