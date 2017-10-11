@@ -1,0 +1,38 @@
+## 빌드 중 에러
+* <span style="color:red"> Class "ClassName" must declare a public constructor with no arguments if it contains custom constructors. </span>
+
+ClassName 이라는 RealmObject를 상속한 클래스에 인자를 받지 않는 기본 생성자를 만들어 주어야 함
+
+{% highlight java %} 
+
+...
+
+class ClassName extends RealmObject {
+
+    public ClassName() {...} // 추가
+
+     public ClassName(int A, String B) {...}
+
+} 
+{% endhighlight %}
+
+여기서 내가 겪었던 문제점은, Data Binding을 사용 중일 시에, Data Binding Error도 덩달아 나타난다. 따라서 단순히 Data Binding + Realm 호환성으로 인한 에러라고 착각 할 수 있었다. 
+
+알고보니, 단순히 위의 해결책을 강구하라는 에러였었다
+
+## Realm-Stetho 적용 에러
+
+(수정중)
+Stetho와 Stetho-Realm을 Github 가이드에 따라 적용하는데, announceProcessor 에러가 나타났다. 
+Gralde : Project단에 추가로 jitpack을 적용해주면 해결된다
+
+{% highlight java %} 
+
+...
+
+maven {
+    url "https://jitpack.io"
+}
+
+...
+{% endhighlight %}
